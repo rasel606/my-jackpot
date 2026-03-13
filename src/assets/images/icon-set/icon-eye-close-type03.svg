@@ -1,0 +1,5 @@
+<!-- src/assets/images/icon-set/icon-eye-close-type03.svg -->
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M10.7303 5.07319C11.1448 5.02485 11.5684 5 12.0003 5C16.6633 5 20.3998 7.90264 21.7003 12C21.5196 12.6442 21.2652 13.2538 20.9453 13.8207M6.52026 6.51944C4.47979 7.76406 2.90167 9.69259 2.00026 12C3.30079 16.0974 7.03726 19 11.7003 19C13.5828 19 15.3281 18.4383 16.8083 17.4893M9.87871 9.87868C9.33576 10.4216 9.00026 11.1716 9.00026 12C9.00026 13.6569 10.3434 15 12.0003 15C12.8287 15 13.5787 14.6645 14.1216 14.1215" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M4 4L20 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
