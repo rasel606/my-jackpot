@@ -46,12 +46,6 @@ export default () => {
     }
   };
 
-  // Handle game link click with authentication
-  const handleGameLinkClick = (game, e) => {
-    e.preventDefault();
-    handleGamePlay(game);
-  };
-
   if (loading) {
     return (
       <div className="loading-container">
@@ -106,7 +100,6 @@ export default () => {
                             {/* Use onClick handler instead of direct launchGame call */}
                             <a
                               href="#"
-                              onClick={(e) => handleGameLinkClick(game, e)}
                               onClick={(e) => {
                                 e.preventDefault();
                                 handleGamePlay(game);

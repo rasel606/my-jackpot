@@ -48,18 +48,6 @@ export const AppProvider = ({ children }) => {
   const [userBalance, setUserBalance] = useState();
   const [refreshing, setRefreshing] = useState(false);
   const [isJoined, setIsJoined] = useState("");
-  // const handleRefresh = async () => {
-  //   try {
-  //     // await handelUserDetails(userId);
-  //     // if(userId){
-  //     const response = await phoneVerificationService.user_balance_update();
-  //     setUserBalance(response.balance);
-  //     console.log("Balance Data:", response.balance);
-  //     // }
-  //   } catch (error) {
-  //     console.error("Error fetching balance:", error);
-  //   }
-  // };
 
   const handleRefresh = useCallback(async () => {
     if (refreshing) return;
@@ -74,7 +62,6 @@ export const AppProvider = ({ children }) => {
 
       const response = await phoneVerificationService.user_balance_update();
       setUserBalance(response.balance);
-      console.log("Balance Data updated:", response.balance);
 
       // if (response.data.hasOwnProperty("balance")) {
       //   (token); // Ensure token is available in scope
@@ -86,9 +73,7 @@ export const AppProvider = ({ children }) => {
     }
   },[ user?.userId])
 
-  /////-----------------------------------------------------Launch game API response-------------------------------------------------/////
 
-  console.log("Launch game API response:", gameLaunchState.gameUrl);
   const [loading, setLoading] = useState(false);
 
   // ✅ Function to call API and show popup
@@ -138,7 +123,6 @@ export const AppProvider = ({ children }) => {
     }
   }, [user?.userId]);
 
-  /////-----------------------------------------------------Launch game API response-------------------------------------------------/////
 
   //-------------------------------Promotions--------------------------------------//
 
@@ -153,7 +137,6 @@ export const AppProvider = ({ children }) => {
     setLoading(true);
     try {
       const response = await promotionsService.GetPromotions();
-      console.log("Promotions Data:", response);
 
       const organizedPromotions = {
         deposit: response.data.filter((p) => p.bonusType.includes("deposit")),
@@ -177,12 +160,6 @@ export const AppProvider = ({ children }) => {
     GetPromotionsData();
   }, [GetPromotionsData]);
   //-------------------------------turnover--------------------------------------//
-  //  const [turnoverData, setTurnoverData] = useState({
-  //   active: [],
-  //   completed: [],
-  //   loading: false,
-  //   lastUpdated: null
-  // });
 
   // Turnover API Functions
   const fetchActiveTurnover = useCallback(async () => {
@@ -246,7 +223,6 @@ export const AppProvider = ({ children }) => {
     bonus: 0,
     vipPoints: 0,
   });
-  // const [promotions, setPromotions] = useState([]);
   const [games, setGames] = useState([]);
   const [banners, setBanners] = useState([]);
   const [notifications, setNotifications] = useState([]);
@@ -394,7 +370,6 @@ export const AppProvider = ({ children }) => {
     fetchCompletedTurnover,
     isJoined,
     setIsJoined,
-    promotions,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
