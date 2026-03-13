@@ -496,6 +496,7 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AppProvider, useApp } from './contexts/AppContext';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { PopupProvider } from './components/layouts/PopupManager';
+import { LanguageProvider } from './contexts/LanguageContext';
 import { PublicRoute, ProtectedRoute, AuthRoute, GamePreviewRoute } from './routing/RouteGuards';
 
 // Layouts
@@ -987,15 +988,17 @@ function AppContent({ showError, showSuccess, showWarning, showInfo }) {
 
 function App() {
   return (
-    <AuthProvider>
-      <AppProvider>
-        <PopupProvider>
-          <AppWithNotifications>
-            <AppContent />
-          </AppWithNotifications>
-        </PopupProvider>
-      </AppProvider>
-    </AuthProvider>
+    <LanguageProvider>
+      <AuthProvider>
+        <AppProvider>
+          <PopupProvider>
+            <AppWithNotifications>
+              <AppContent />
+            </AppWithNotifications>
+          </PopupProvider>
+        </AppProvider>
+      </AuthProvider>
+    </LanguageProvider>
   );
 }
 

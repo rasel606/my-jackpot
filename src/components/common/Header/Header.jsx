@@ -1,6 +1,7 @@
 
 
 // import React from 'react';
+import { useLanguage } from '../../../contexts/LanguageContext';
 // import { useAuth } from '../../../contexts/AuthContext';
 // import { useApp } from '../../../contexts/AppContext';
 // import { usePopup } from '../../layouts/PopupManager';
@@ -139,6 +140,8 @@ const Header = ({ type = 'normal', title, onBack }) => {
     });
   };
 
+  const { lang, switchLanguage, t } = useLanguage();
+
   if (type === 'promotion') {
     return (
       <header className="header-inner-promotion">
@@ -203,8 +206,16 @@ const Header = ({ type = 'normal', title, onBack }) => {
           style={{maskImagea:"url(https://img.s628b.com/sb/h5/assets/images/icon-set/index-theme-icon/header-customer-icon.svg)",
           WebkitMaskImage:"url(https://img.s628b.com/sb/h5/assets/images/icon-set/index-theme-icon/header-customer-icon.svg)"}}
           ></span>
-          <p>লাইভ চ্যাট</p>
+          <p>{t('liveChat')}</p>
         </a>
+
+        <button
+          className="lang-toggle-btn"
+          onClick={() => switchLanguage(lang === 'bn' ? 'en' : 'bn')}
+          title={t('language')}
+        >
+          {lang === 'bn' ? 'EN' : 'বাং'}
+        </button>
       </div>
     </header>
   );
