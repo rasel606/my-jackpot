@@ -27,3 +27,5 @@ export const useScroll = (threshold = 150, debounceDelay = 200) => {
 
   return { isFixed, scrollStopped };
 };
+// Alias for backward compatibility
+export { useScroll as useScrollFix };

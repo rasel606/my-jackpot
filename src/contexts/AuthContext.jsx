@@ -23,7 +23,6 @@ export const AuthProvider = ({ children }) => {
     // Initialize the auth service with token
     const initAuth = async () => {
       if (token) {
-        console.log("Initializing with token:", token);
         authService.setToken(token);
         await fetchUserProfile();
       } else {
@@ -36,9 +35,7 @@ export const AuthProvider = ({ children }) => {
 
   const fetchUserProfile = async () => {
     try {
-      console.log("Fetching user profile...");
       const userData = await authService.getProfile();
-      console.log("User profile fetched:", userData);
       setUser(userData);
     } catch (error) {
       console.error('Failed to fetch user profile:', error);
@@ -54,13 +51,10 @@ export const AuthProvider = ({ children }) => {
   const register = async (formData, language = 'en') => {
     try {
       setLoading(true);
-      console.log("Registering user:",
-         {userId: formData.userId, password: formData.password, phone: formData.phone, countryCode: formData.countryCode, language});
 
 
       const response = await authService.register({userId: formData.userId, password: formData.password, phone: formData.phone, countryCode: formData.countryCode, language});
       
-      console.log("Login response:", response.user);
       
       // Handle different response structures
       const newToken = response.token || response.data?.token;
@@ -87,7 +81,6 @@ export const AuthProvider = ({ children }) => {
       setLoading(true);
       const response = await authService.login({userId: userId, password, language});
       
-      console.log("Login response:", response.user);
       
       // Handle different response structures
       const newToken = response.token || response.data?.token;

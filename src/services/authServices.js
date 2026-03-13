@@ -7,7 +7,6 @@ export const authService = {
 
   login: async (credentials) => {
     const response = await apiService.post('/v1/login_user', credentials);
-  console.log("User profile fetched:", response);
     if (response && response.token) {
       const token = response.token;
       localStorage.setItem('png71-user', token);
@@ -21,7 +20,6 @@ export const authService = {
   getProfile: async () => {
     try {
       const response = await apiService.get('/v1/user_details');
-  console.log("User profile fetched:", response);
       // Handle different response structures
       if (response.data) {
         return response.data; // If backend returns { success: true, data: user }
@@ -38,7 +36,6 @@ export const authService = {
   updateFullName: async (fullName) => {
     try {
       const response = await apiService.put('/profile/full-name', { fullName });
-      console.log("Update full name response:", response);
       return response;
     } catch (error) {
       console.error("Update full name error:", error);
@@ -48,7 +45,6 @@ export const authService = {
   updateBirthday: async (birthday) => {
     try {
       const response = await apiService.put('/profile/birthday', { birthday });
-      console.log("Update birthday response:", response);
       return response;
     } catch (error) {
       console.error("Update birthday error:", error);
@@ -74,7 +70,6 @@ export const authService = {
     changePassword: async (passwordData) => {
     try {
       const response = await apiService.put('/auth/change-password', passwordData);
-      console.log("Change password response:", response);
       return response;
     } catch (error) {
       console.error("Change password error:", error);
